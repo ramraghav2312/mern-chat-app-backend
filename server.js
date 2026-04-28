@@ -14,14 +14,14 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server, {
   cors: {
-    origin: ["http://localhost:5173", "https://mern-chat-app.netlify.app"],
+    origin: ["http://localhost:5173", "https://mern-web-chat-app.netlify.app"],
     methods: ["GET", "POST"],
     credentials: true,
   },
 });
 
 app.use(cors({
-  origin: ["http://localhost:5173", "https://mern-chat-app.netlify.app"],
+  origin: ["http://localhost:5173", "https://mern-web-chat-app.netlify.app"],
 }));
 app.use(express.json());
 
@@ -36,8 +36,6 @@ app.get("/", (req, res) => {
   res.json({
     project: "MERN Chat App using Socket.IO",
     message: "Welcome to MERN Chat Application",
-    developedBy: "Ram Raghav and AI",
-    website: "mern-chat-app.netlify.com",
   });
 });
 app.use("/api/users", userRouter);
